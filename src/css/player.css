@@ -1,0 +1,71 @@
+.player-position {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.player {
+    transition: all .5s linear;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.player[data-show=true] {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.player-point {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -185%);
+    background: url("../image/player-dialog.png") no-repeat;
+    background-size: contain;
+    max-height: 120px;
+    width: 110px;
+    height: 110px;
+    z-index: 4;
+    transition: opacity .5s ease-in-out;
+    opacity: 0;
+}
+
+.player-point-fadein {
+    opacity: 1;
+}
+
+.player-point-text {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-5%, -70%);
+    font: normal bolder 28px "Franklin Gothic Heavy";
+    color: #8a3c1a;
+}
+
+.player-point-text:before {
+    position: absolute;
+    content: " ";
+    left: -38%;
+    background: url("../image/star.png") no-repeat;
+    background-size: contain;
+    min-height: 35px;
+    width: 90%;
+    filter: sepia(1);
+}
+
+.light-grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    left: calc(50% - 75px);
+    top: calc(50% + 75px);
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+}
+
+.light-grid-fadein {
+    opacity: 1;
+}

@@ -1,0 +1,1 @@
+"use strict";define(["vue","countUp"],function(Vue,countUp){return new Vue({el:"#player-dialog",data:{startGrade:0,endGrade:null},methods:{showGrade:function(){new CountUp("grade-point",this.startGrade,this.endGrade,0,3).start()},fadeInDialog:function(){document.querySelector("#player-dialog").classList.add("player-point-fadein")}}})});

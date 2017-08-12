@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="ehainlin">
+  <meta name="copyright" content="ehainlin">
+  <meta name="description" content="翰林雲端-測試你的學霸指數">
+  <meta name="eHanlin - 翰林雲端學院" content="eHanlin - 翰林雲端學院 Smart Learning!">
+  <meta id="og-url" property="og:url" content="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/richman-questionnaire/src/fb-meditation.html"
+  />
+  <meta property="og:title" content="翰林雲端 學霸測驗結果：學習風格是「反思型」" />
+  <meta id="og-description" property="og:description" content="你的學習風格是「反思型」，你可以在學習過程中偶爾停下來複習之前讀過的內容或多做相關的題目融會貫通，會讓學習更有成效哦！翰林雲端學院提供你資源最多的線上學習，讓你有效且隨時鍛鍊自己的能力！"
+  />
+  <meta id="og-image" property="og:image" content="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/richman-questionnaire/src/image/fb-meditation.png"
+  />
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/layout.css">
+  <link rel="stylesheet" type="text/css" href="./css/study-master.css">
+  <link rel="stylesheet" type="text/css" href="./css/progress-button.css">
+</head>
+
+<body>
+  <audio src="./audio/jazz.mp3" autoplay></audio>
+  <div id="initial"></div>
+  <div class="layout">
+    <header class="header">
+      <div class="header-left">
+        <a href="#"><img src="./image/ehanlin.png"></img></a>
+      </div>
+      <div id="anchor-list" class="header-right">
+        <ehanlin-link :link="anchor" v-for="anchor in anchors"></ehanlin-link>
+      </div>
+    </header>
+
+    <main class="container container-index">
+      <div class="study-master center">
+        <img class="study-master-img" src="./image/study-master.png"></img>
+        <div id="start" class="start-button">
+          <progress-button :button-class="['start-button-font', 'button-frame-inner']" @click="doAction">{{buttonText}}</progress-button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+<script data-main="js/index" src="js/lib/require.js"></script>
+
+</html>

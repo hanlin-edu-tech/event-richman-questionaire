@@ -1,0 +1,64 @@
+.npc-toast-position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(180%, -180%);
+    z-index: 3;
+}
+
+.npc-ice-cream-position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-180%, -140%);
+    z-index: 3;
+}
+
+.npc-character {
+    transition: all .5s linear;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.npc-character-show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.dialog-toast-position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(200%, -370%);
+}
+
+.dialog-ice-cream-position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-160%, -290%);
+}
+
+.npc-conversation {
+    background: url("../image/npc-dialog.png") no-repeat;
+    background-size: contain;
+    min-height: 140px;
+    width: 155px;
+    height: 125px;
+    z-index: 4;
+    transition: opacity .5s ease-in-out;
+    opacity: 0;
+    color: white;
+    font: normal bolder 16px "微軟正黑體";
+}
+
+.npc-conversation-fadein {
+    opacity: 1;
+}
+
+.npc-conversation-text {
+    position: relative;
+    width: 70%;
+    top: 20%;
+    left: 10%;
+}
