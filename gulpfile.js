@@ -18,7 +18,7 @@ var clean = () => {
 var copyStaticFile = () => {
   return function() {
     return gulp
-      .src(["src/**/*.html", "src/js/lib/*.js"], basePath)
+      .src(["src/**/*.html", "src/js/lib/*.js", "src/audio/*"], basePath)
       .pipe(gulp.dest(dest));
   };
 };
