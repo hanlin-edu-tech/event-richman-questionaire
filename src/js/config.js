@@ -1,15 +1,15 @@
 define(function() {
   require.config({
-    baseUrl: "js",
+    baseUrl: "./js",
     paths: {
       vue: ["https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min"],
       velocity: [
         "https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min"
       ],
       countUp: ["https://cdn.jsdelivr.net/countupjs/1.8.5/countUp.min"],
-      answer: ["module/answer"],
-      round: ["module/round"],
-      questionsContents: ["module/questions-contents"],
+      answer: ["./module/answer"],
+      round: ["./module/round"],
+      questionsContents: ["./module/questions-contents"],
       v_anchorList: ["./vue-module/anchor-list"],
       v_componentProgressButton: ["./vue-module/progress-button"],
       v_componentNpc: ["./vue-module/component-npc"],
