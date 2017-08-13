@@ -21,7 +21,7 @@ define(["vue"], function(Vue) {
         },
         {
           image: "./image/line.png",
-          href: "http://line.me/R/ti/p/MtsRQz_Hn5"
+          href: "https://line.me/R/ti/p/MtsRQz_Hn5"
         }
       ]
     },
