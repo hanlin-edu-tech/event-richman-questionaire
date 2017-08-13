@@ -8,27 +8,27 @@ define(["vue"], function(Vue) {
           text: "再玩一次 "
         },
         {
-          href: "",
+          href: "https://www.ehanlin.com.tw/courses_map.html",
           text: "學霸課程 "
         },
         {
-          href: "",
+          href: "https://www.ehanlin.com.tw/106intro.html",
           text: "輕鬆學習課程 "
         },
         {
           image: "./image/facebook.png",
-          href: ""
+          href: "https://www.facebook.com/ehanlin.com.tw/"
         },
         {
           image: "./image/line.png",
-          href: ""
+          href: "http://line.me/R/ti/p/MtsRQz_Hn5"
         }
       ]
     },
     components: {
       ehanlinLink: {
         template: `
-        <a v-if="link.text" :href="link.href">{{link.text}}</a>
+        <a v-if="link.text" :href="link.href">{{link.text}}&nbsp;</a>
         <a v-else :href="link.href">
           <img :src="link.image"></img>
         </a>

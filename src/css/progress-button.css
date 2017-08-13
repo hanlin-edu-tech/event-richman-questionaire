@@ -1,55 +1,59 @@
 .button-frame-outer {
-  border: 2px black solid;
-  border-radius: 5px;
-  background-color: black;
-  box-sizing: border-box;
-  z-index: 1;
+    border: 2px black solid;
+    border-radius: 5px;
+    background-color: black;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
 .button-frame-inner {
-  position: inherit;
-  width: 100%;
-  height: auto;
-  cursor: url('../image/hand-light.png'), pointer;
-  border: 0px;
-  border-bottom: 3px solid#ffcdde;
-  color: white;
-  letter-spacing: 5px;
-  background: #fe082c;
-  outline: none;
+    position: inherit;
+    width: 100%;
+    height: auto;
+    cursor: url('../image/hand-light.png'), pointer;
+    border: 0px;
+    border-bottom: 3px solid#ffcdde;
+    color: white;
+    letter-spacing: 5px;
+    background: #fe082c;
+    outline: none;
+}
+
+.button-frame-inner:hover {
+    color: #fff9bb;
 }
 
 .start-button {
-  position: relative;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40%;
-  height: auto;
-  transition: all .2s linear;
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: auto;
+    transition: all .2s linear;
 }
 
 .start-button:hover {
-  transform: translateY(-50%);
+    transform: translate(-50%, -20%);
 }
 
 .start-button-font {
-  font: normal 400 24px "微軟正黑體";
-  letter-spacing: 5px;
+    font: normal 400 24px "微軟正黑體";
+    letter-spacing: 5px;
 }
 
 .confirm-button {
-  position: relative;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: auto;
-  z-index: 5;
-  visibility: hidden;
+    position: relative;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: auto;
+    z-index: 5;
+    visibility: hidden;
 }
 
 .confirm-button-font {
-  font: normal 400 20px "微軟正黑體";
-  letter-spacing: 5px;
+    font: normal 400 20px "微軟正黑體";
+    letter-spacing: 5px;
 }

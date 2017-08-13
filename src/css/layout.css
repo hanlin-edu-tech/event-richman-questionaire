@@ -63,9 +63,9 @@ a {
 }
 
 .container-index {
-  background: url("../image/map-initial.png") no-repeat fixed -200% 60%;
+  background: url("../image/map-initial.png") no-repeat fixed -160% 60%;
   background-size: 130%;
-  background-color: #fff9bb;
+  background-color: #aeebff;
 }
 
 .container-map {

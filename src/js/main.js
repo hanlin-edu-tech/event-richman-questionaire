@@ -10,7 +10,7 @@ require(["config"], function(config) {
 
       Velocity(
         container,
-        { backgroundPositionX: 0 },
+        { backgroundPositionX: "-70%" },
         { duration: 5000, loop: true }
       );
     };
