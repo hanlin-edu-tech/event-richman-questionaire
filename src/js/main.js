@@ -1,6 +1,6 @@
 require(["config"], function(config) {
-  require(["v_anchorList"]);
   require(["v_componentProgressButton"]);
+  require(["v_anchorList"]);
   require(["v_start"]);
   require(["velocity"], function(velocity) {
     var settingBody = function() {

@@ -24,9 +24,10 @@ define(["vue"], function (Vue) {
           var student = this.$refs.student.$el;
           this.imageFile = imageFile;
           student.setAttribute("src", this.entireImagePath);
-          student.onload = function () {
+          setTimeout(function () {
             student.setAttribute("data-show", true);
-          };
+          }, 100);
+          // student.onload =
         }
       }
     },

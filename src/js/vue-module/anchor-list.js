@@ -1,4 +1,4 @@
-define(["vue"], function(Vue) {
+define(["vue", "rootPath"], function(Vue, rootPath) {
   new Vue({
     el: "#anchor-list",
     data: {
@@ -16,11 +16,11 @@ define(["vue"], function(Vue) {
           text: "輕鬆學習課程 "
         },
         {
-          image: "./image/facebook.png",
+          image: `${rootPath}/image/facebook.png`,
           href: "https://www.facebook.com/ehanlin.com.tw/"
         },
         {
-          image: "./image/line.png",
+          image: `${rootPath}/image/line.png`,
           href: "https://line.me/R/ti/p/MtsRQz_Hn5"
         }
       ]

@@ -33,7 +33,7 @@ define([], function() {
           text: "D、動次動次！體育和音樂等副科是我的最愛",
           roleImage: "role4.png",
           roleBackImage: "role4-back.png",
-          roleMessage: "『三分球，它在空中停留...』，我是林書豪\n",
+          roleMessage: "『三分球，它在空中停留...』，我是 Curry\n",
           point: 10
         }
       ]

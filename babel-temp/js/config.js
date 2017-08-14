@@ -10,6 +10,7 @@ define(function () {
       answer: ["module/answer"],
       round: ["module/round"],
       questionsContents: ["module/questions-contents"],
+      rootPath: document.getElementById("rootPath").getAttribute("data-value"),
       v_anchorList: ["vue-module/anchor-list"],
       v_componentProgressButton: ["vue-module/progress-button"],
       v_componentNpc: ["vue-module/component-npc"],
