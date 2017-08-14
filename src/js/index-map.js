@@ -4,7 +4,13 @@ require(["config"], function(config) {
   require(["v_componentKeepWalk"]);
   require(["v_confirm"]);
   require(["v_result"]);
-  require(["velocity"], function(velocity) {
+  require([
+    "velocity",
+    "v_player",
+    "v_message",
+    "v_questions",
+    "round"
+  ], function(velocity, v_player, v_message, v_questions, round) {
     var container, mapLoading;
     var loading = function() {
       mapLoading.style.display = "";
@@ -32,16 +38,6 @@ require(["config"], function(config) {
 
     setTimeout(function() {
       mapLoading.remove();
-    }, 5000);
-  });
-
-  require(["v_player", "v_message", "v_questions", "round"], function(
-    v_player,
-    v_message,
-    v_questions,
-    round
-  ) {
-    setTimeout(function() {
       v_player.entireImagePath = "student.png";
       v_message.initial();
       //resultViewModel.popupResult();
@@ -50,6 +46,6 @@ require(["config"], function(config) {
         v_questions.popupQuestion(round.first);
         v_message.popupHint("點選最符合你的選項喔！");
       }, 3500);
-    }, 5000);
+    }, 10000);
   });
 });

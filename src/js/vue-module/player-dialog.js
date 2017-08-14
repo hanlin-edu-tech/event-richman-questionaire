@@ -1,4 +1,4 @@
-define(["vue", "countUp"], function(Vue, countUp) {
+define(["vue", "countUp"], function(Vue, CountUp) {
   var playerDialog = new Vue({
     el: "#player-dialog",
     data: {
