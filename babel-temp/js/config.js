@@ -18,8 +18,8 @@ define(function () {
       v_player: ["vue-module/player"],
       v_playerDialog: ["vue-module/player-dialog"],
       v_message: ["vue-module/message"],
-      v_confirm: ["./vue-module/confirm"],
-      v_questions: ["./vue-module/questions"],
+      v_confirm: ["vue-module/confirm"],
+      v_questions: ["vue-module/questions"],
       v_npcRole: ["vue-module/npc-role"],
       v_result: ["vue-module/result"]
     }
