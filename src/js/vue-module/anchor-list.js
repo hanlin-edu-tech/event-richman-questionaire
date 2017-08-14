@@ -1,4 +1,5 @@
 define(["vue", "rootPath"], function(Vue, rootPath) {
+  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
   new Vue({
     el: "#anchor-list",
     data: {
