@@ -1,4 +1,4 @@
-define(["vue", "rootPath"], function(Vue, rootPath) {
+define(["vue"], function(Vue) {
   var rootPath = document.getElementById("rootPath").getAttribute("data-value");
   new Vue({
     el: "#anchor-list",

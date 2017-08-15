@@ -1,12 +1,4 @@
 require(["config"], function(config) {
-  var removeInitialLoader = function() {
-    var initialLoaders = document.querySelectorAll("img[name=initialLoader]");
-    for (var i = 0; i < initialLoaders.length; i++) {
-      initialLoaders[i].remove();
-    }
-  };
-
-  //removeInitialLoader();
   require(["v_anchorList"]);
   require(["v_componentProgressButton"]);
   require(["v_componentKeepWalk"]);

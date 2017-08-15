@@ -1,6 +1,5 @@
 define(function() {
   require.config({
-    //baseUrl:"js",
     paths: {
       vue: ["https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min"],
       velocity: [
