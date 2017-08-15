@@ -12,13 +12,13 @@ define(["vue"], function (Vue) {
     },
     methods: {
       initial: function initial() {
-        messageSelf = this;
+        var messageSelf = this;
         messageSelf.text = "歡迎來到學霸星球，想知道自己的學霸指數嗎？ Let's Go !!～";
         setTimeout(messageSelf.popupHint.bind(this, "", 3000), 200);
       },
 
       popupHint: function popupHint(content, duration) {
-        messageSelf = this;
+        var messageSelf = this;
         if (!messageSelf.isAlreadyHint) {
           if (messageSelf.text) {
             messageSelf.text = messageSelf.text + (content ? content : "");
