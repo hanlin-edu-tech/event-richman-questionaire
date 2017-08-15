@@ -1,5 +1,10 @@
-define(["vue", "v_playerDialog"], function(Vue, v_playerDialog) {
-  var result = new Vue({
+define(["vue", "v_playerDialog", "answer"], function(
+  Vue,
+  v_playerDialog,
+  answer
+) {
+  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
+  var v_result = new Vue({
     el: "#result",
     data: {
       finalImage: "",
@@ -14,7 +19,7 @@ define(["vue", "v_playerDialog"], function(Vue, v_playerDialog) {
           switch (answer[questionNum].id) {
             case "Q3_1":
               resultSelf.grade = v_playerDialog.endGrade;
-              resultSelf.finalImage = "./image/aggressive.png";
+              resultSelf.finalImage = `${rootPath}/image/aggressive.png`;
               resultSelf.finalContent = `
           你的學習風格是「主動型」，喜歡在群體中相互學習相互成長，
           和同學一起切磋是比較適合你的學習方式，
@@ -25,7 +30,7 @@ define(["vue", "v_playerDialog"], function(Vue, v_playerDialog) {
               break;
             case "Q3_2":
               resultSelf.grade = v_playerDialog.endGrade;
-              resultSelf.finalImage = "./image/hearing.png";
+              resultSelf.finalImage = `${rootPath}/image/hearing.png`;
               resultSelf.finalContent = `
           你的學習風格是「聽覺型」，較容易從影音講解的方式學習，
           試著在閱讀完後寫下摘要或聆聽他人解說，會更有效率的學習哦！
@@ -35,7 +40,7 @@ define(["vue", "v_playerDialog"], function(Vue, v_playerDialog) {
               break;
             case "Q3_3":
               resultSelf.grade = v_playerDialog.endGrade;
-              resultSelf.finalImage = "./image/meditation.png";
+              resultSelf.finalImage = `${rootPath}/image/meditation.png`;
               resultSelf.finalContent = `
           你的學習風格是「反思型」，
           你可以在學習過程中偶爾停下來複習之前讀過的內容或多做相關的題目融會貫通，
@@ -45,7 +50,7 @@ define(["vue", "v_playerDialog"], function(Vue, v_playerDialog) {
               break;
             case "Q3_4":
               resultSelf.grade = v_playerDialog.endGrade;
-              resultSelf.finalImage = "./image/sequence.png";
+              resultSelf.finalImage = `${rootPath}/image/sequence.png`;
               resultSelf.finalContent = `
           你的學習風格是「循序型」，按部就班的跟著邏輯了解課程是很適合你的讀書方法，
           試著花點時間將課程內容整理成最適合自己的摘要，
@@ -87,5 +92,5 @@ define(["vue", "v_playerDialog"], function(Vue, v_playerDialog) {
     }
   });
 
-  return result;
+  return v_result;
 });

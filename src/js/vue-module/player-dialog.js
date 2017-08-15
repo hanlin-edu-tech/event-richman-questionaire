@@ -1,5 +1,5 @@
 define(["vue", "countUp"], function(Vue, CountUp) {
-  var playerDialog = new Vue({
+  var v_playerDialog = new Vue({
     el: "#player-dialog",
     data: {
       startGrade: 0,
@@ -26,5 +26,5 @@ define(["vue", "countUp"], function(Vue, CountUp) {
     }
   });
 
-  return playerDialog;
+  return v_playerDialog;
 });

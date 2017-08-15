@@ -1,5 +1,5 @@
-define([], function() {
-  var questionContent = {
+define(function() {
+  var questionsContents = {
     Q1: {
       num: "Q1.",
       content: "你最擅長哪一個科目呢？",
@@ -80,5 +80,5 @@ define([], function() {
     }
   };
 
-  return questionContent;
+  return questionsContents;
 });

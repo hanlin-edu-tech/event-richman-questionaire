@@ -1,6 +1,6 @@
 "use strict";
 
-define(["vue"], function (Vue) {
+define(["vue", "v_componentProgressButton"], function (Vue, v_componentProgressButton) {
   new Vue({
     el: "#start",
     data: { buttonText: "開始測驗" },

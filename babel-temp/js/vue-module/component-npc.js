@@ -1,7 +1,7 @@
 "use strict";
 
 define(["vue"], function (Vue) {
-  var componentNpc = {
+  var v_componentNpc = {
     template: "\n    <div>\n      <div ref=\"npcDialog\" :class=\"npcDialogClass\">\n         <div ref=\"verbatimText\" class=\"npc-conversation-text\"></div>\n      </div>\n     \n      <div :class=\"npcClass\">\n        <img ref=\"npcImage\" class=\"npc-character\" :src=\"entireImagePath\"></img>\n      </div>\n    </div>\n  ",
     props: ["entireImagePath", "npcClass", "npcDialogClass"],
     methods: {
@@ -29,5 +29,5 @@ define(["vue"], function (Vue) {
     }
   };
 
-  return componentNpc;
+  return v_componentNpc;
 });

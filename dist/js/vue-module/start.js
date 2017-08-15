@@ -1,1 +1,1 @@
-"use strict";define(["vue"],function(Vue){new Vue({el:"#start",data:{buttonText:"開始測驗"},methods:{doAction:function(){location.replace("./richman-map.html")}}})});
+"use strict";define(["vue","v_componentProgressButton"],function(Vue,v_componentProgressButton){new Vue({el:"#start",data:{buttonText:"開始測驗"},methods:{doAction:function(){location.replace("./richman-map.html")}}})});

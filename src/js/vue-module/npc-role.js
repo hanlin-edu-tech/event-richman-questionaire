@@ -1,9 +1,10 @@
 define(["vue", "v_componentNpc"], function(Vue, v_componentNpc) {
-  var npcRole = {
+  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
+  var v_npcRole = {
     toast: new Vue({
       el: "#npc-toast",
       data: {
-        entireImagePath: "./image/toast.png",
+        entireImagePath: `${rootPath}/image/toast.png`,
         npcClass: "npc-toast-position",
         npcDialogClass: ["dialog-toast-position", "npc-conversation"],
         content: "給你一片記憶吐司～(oˊ ω ˋ)"
@@ -25,11 +26,10 @@ define(["vue", "v_componentNpc"], function(Vue, v_componentNpc) {
         }
       }
     }),
-
     iceCream: new Vue({
       el: "#npc-ice-cream",
       data: {
-        entireImagePath: "./image/ice-cream.png",
+        entireImagePath: `${rootPath}/image/ice-cream.png`,
         npcClass: "npc-ice-cream-position",
         npcDialogClass: ["dialog-ice-cream-position", "npc-conversation"],
         content: "一起吃冰淇淋吧～(♡·︶·♡)"
@@ -55,5 +55,5 @@ define(["vue", "v_componentNpc"], function(Vue, v_componentNpc) {
     })
   };
 
-  return npcRole;
+  return v_npcRole;
 });

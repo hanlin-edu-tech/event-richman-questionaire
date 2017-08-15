@@ -1,5 +1,5 @@
 define(["vue"], function(Vue) {
-  var componentNpc = {
+  var v_componentNpc = {
     template: `
     <div>
       <div ref="npcDialog" :class="npcDialogClass">
@@ -37,5 +37,5 @@ define(["vue"], function(Vue) {
     }
   };
 
-  return componentNpc;
+  return v_componentNpc;
 });

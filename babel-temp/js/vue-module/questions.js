@@ -1,7 +1,8 @@
 "use strict";
 
-define(["vue", "v_message", "v_player"], function (Vue, v_message, v_player) {
-  var questions = new Vue({
+define(["vue", "v_message", "v_player", "answer"], function (Vue, v_message, v_player, answer) {
+  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
+  var v_questions = new Vue({
     el: "#questions",
     data: {
       questionNum: "",
@@ -69,17 +70,17 @@ define(["vue", "v_message", "v_player"], function (Vue, v_message, v_player) {
         methods: {
           onStar: function onStar(pickId) {
             var starButton = document.getElementById(pickId);
-            starButton.style.backgroundImage = "url(\"./image/star.png\")";
+            starButton.style.backgroundImage = "url(\"" + rootPath + "/image/star.png\")";
             starButton.style.outline = "none";
           },
 
           offStar: function offStar(pickId) {
             var starButton, isClick;
             starButton = document.getElementById(pickId);
-            starButton.style.backgroundImage = "url(\"./image/star-uncheck.png\")";
+            starButton.style.backgroundImage = "url(\"" + rootPath + "/image/star-uncheck.png\")";
             isClick = starButton.getAttribute("data-determine-click");
             if (isClick === "true") {
-              starButton.style.backgroundImage = "url(\"./image/star.png\")";
+              starButton.style.backgroundImage = "url(\"" + rootPath + "/image/star.png\")";
             }
           },
 
@@ -92,12 +93,12 @@ define(["vue", "v_message", "v_player"], function (Vue, v_message, v_player) {
               var starButtonStyle = starButton.style;
 
               if (starButton.getAttribute("id") === pickId) {
-                starButtonStyle.backgroundImage = "url(\"./image/star.png\")";
+                starButtonStyle.backgroundImage = "url(\"" + rootPath + "/image/star.png\")";
                 starButtonStyle.outline = "none";
                 starButton.setAttribute("data-determine-click", true);
               } else {
                 if (starButton.getAttribute("data-determine-click") === "true") {
-                  starButtonStyle.backgroundImage = "url(\"./image/star-uncheck.png\")";
+                  starButtonStyle.backgroundImage = "url(\"" + rootPath + "/image/star-uncheck.png\")";
                   starButton.setAttribute("data-determine-click", false);
                 }
               }
@@ -108,5 +109,5 @@ define(["vue", "v_message", "v_player"], function (Vue, v_message, v_player) {
     }
   });
 
-  return questions;
+  return v_questions;
 });

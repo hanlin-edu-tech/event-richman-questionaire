@@ -1,14 +1,10 @@
 "use strict";
 
 define(function (require) {
-  v_questions = require("v_questions");
-  v_player = require("v_player");
-  v_playerDialog = require("v_playerDialog");
-  v_message = require("v_message");
-  v_npcRole = require("v_npcRole");
-  v_result = require("v_result");
-  questionsContents = require("questionsContents");
-  answer = require("answer");
+  var v_player = require("v_player");
+  var v_questions = require("v_questions");
+  var questionsContents = require("questionsContents");
+  var answer = require("answer");
   var round = {
     /*
       * 當 popup 問題確認回答後，角色開始移動，並執行以下動作：
@@ -30,6 +26,8 @@ define(function (require) {
     addGrade: function addGrade(roundTarget) {
       var point = answer[roundTarget.questionObject.num].point;
       setTimeout(function () {
+        var v_playerDialog = require("v_playerDialog");
+        var v_message = require("v_message");
         var total = parseInt(v_playerDialog.startGrade) + parseInt(point);
         v_playerDialog.endGrade = total;
         v_playerDialog.fadeInDialog();
@@ -73,7 +71,7 @@ define(function (require) {
       },
       endMove: function endMove(v_confirm) {
         var thirdRound = round.third;
-        var npcToast = v_npcRole.toast;
+        var npcToast = require("v_npcRole").toast;
 
         v_confirm.roundTarget = thirdRound;
         v_confirm.step = thirdRound.step;
@@ -112,7 +110,7 @@ define(function (require) {
       direction: "leftUp",
       endMove: function endMove(v_confirm) {
         var fifthRound = round.fifth;
-        var npcIceCream = v_npcRole.iceCream;
+        var npcIceCream = require("v_npcRole").iceCream;
         v_confirm.roundTarget = fifthRound;
         v_confirm.step = fifthRound.step;
         v_confirm.direction = fifthRound.direction;
@@ -154,6 +152,7 @@ define(function (require) {
       },
       endMove: function endMove(confirmSeif) {
         v_player.entireImagePath = answer.roleImage;
+        v_result = require("v_result");
         v_result.popupResult();
       }
     }

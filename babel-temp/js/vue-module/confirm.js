@@ -1,6 +1,6 @@
 "use strict";
 
-define(["vue", "round"], function (Vue, round) {
+define(["vue", "round", "v_componentProgressButton"], function (Vue, round, v_componentProgressButton) {
   new Vue({
     el: "#confirm",
     data: {

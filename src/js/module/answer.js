@@ -1,4 +1,4 @@
-define(["vue"], function(vue) {
+define(function() {
   var answer = {
     roleImage: "",
     roleBackImage: "",

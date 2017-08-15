@@ -1,7 +1,8 @@
 "use strict";
 
 define(["vue"], function (Vue) {
-  var player = new Vue({
+  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
+  var v_player = new Vue({
     el: "#player",
     data: { imageFile: "" },
     components: {
@@ -11,14 +12,14 @@ define(["vue"], function (Vue) {
       },
 
       "light-grid": {
-        template: "<img class=\"light-grid\" src=\"./image/light-grid.png\">"
+        template: "<img class=\"light-grid\" src=\"" + rootPath + "/image/light-grid.png\">"
       }
     },
 
     computed: {
       entireImagePath: {
         get: function get() {
-          return "./image/" + this.imageFile;
+          return rootPath + "/image/" + this.imageFile;
         },
         set: function set(imageFile) {
           var student = this.$refs.student.$el;
@@ -50,5 +51,5 @@ define(["vue"], function (Vue) {
     }
   });
 
-  return player;
+  return v_player;
 });

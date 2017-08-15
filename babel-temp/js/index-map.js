@@ -9,14 +9,14 @@ require(["config"], function (config) {
   require(["velocity", "v_player", "v_message", "v_questions", "round"], function (velocity, v_player, v_message, v_questions, round) {
     var loading = function loading() {
       mapLoading.style.display = "";
-      mapLoading.style.minHeight = document.documentElement.clientHeight * 0.88 + "px";
+      mapLoading.style.minHeight = document.documentElement.clientHeight * 0.8 + "px";
       mapLoading.classList.add("ehanlin-loading-overlay");
     };
 
     var initialMap = function initialMap() {
       var container, mask;
       container = document.querySelector(".container");
-      container.style.height = document.documentElement.clientHeight * 0.88 + "px";
+      container.style.height = document.documentElement.clientHeight * 0.8 + "px";
 
       mask = document.querySelector(".mask");
       mask.style.height = document.documentElement.clientHeight + "px";

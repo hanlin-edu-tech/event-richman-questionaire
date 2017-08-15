@@ -1,5 +1,5 @@
 define(["vue"], function(Vue) {
-  var message = new Vue({
+  var v_message = new Vue({
     el: "#message",
     data: {
       cssClass: "message-format",
@@ -38,5 +38,5 @@ define(["vue"], function(Vue) {
     }
   });
 
-  return message;
+  return v_message;
 });

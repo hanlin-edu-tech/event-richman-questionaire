@@ -14,7 +14,7 @@ require(["config"], function(config) {
     var loading = function() {
       mapLoading.style.display = "";
       mapLoading.style.minHeight = `${document.documentElement.clientHeight *
-        0.88}px`;
+        0.8}px`;
       mapLoading.classList.add("ehanlin-loading-overlay");
     };
 
@@ -22,7 +22,7 @@ require(["config"], function(config) {
       var container, mask;
       container = document.querySelector(".container");
       container.style.height = `${document.documentElement.clientHeight *
-        0.88}px`;
+        0.8}px`;
 
       mask = document.querySelector(".mask");
       mask.style.height = `${document.documentElement.clientHeight}px`;
