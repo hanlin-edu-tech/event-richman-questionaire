@@ -5,7 +5,7 @@ define(["vue"], function(Vue) {
     data: { imageFile: "" },
     components: {
       "player-role": {
-        template: `<img class="player" src=""></img>`,
+        template: `<img class="player" src="">`,
         props: ["image"]
       },
 

@@ -24,7 +24,7 @@ define(["vue"], function (Vue) {
     },
     components: {
       ehanlinLink: {
-        template: "\n        <a v-if=\"link.text\" :href=\"link.href\">{{link.text}}&nbsp;</a>\n        <a v-else :href=\"link.href\">\n          <img :src=\"link.image\"></img>\n        </a>\n      ",
+        template: "\n        <a v-if=\"link.text\" :href=\"link.href\">{{link.text}}&nbsp;</a>\n        <a v-else :href=\"link.href\">\n          <img :src=\"link.image\">\n        </a>\n      ",
         props: ["link"]
       }
     }

@@ -9,7 +9,7 @@ require(["config"], function (config) {
       var container = document.querySelector(".container");
       container.style.height = document.documentElement.clientHeight * 0.88 + "px";
 
-      Velocity(container, { backgroundPositionX: "-70%" }, { duration: 5000, loop: true });
+      Velocity(container, { backgroundPositionX: "-20%" }, { duration: 5000, loop: true });
     };
 
     settingBody();

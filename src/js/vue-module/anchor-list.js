@@ -31,7 +31,7 @@ define(["vue"], function(Vue) {
         template: `
         <a v-if="link.text" :href="link.href">{{link.text}}&nbsp;</a>
         <a v-else :href="link.href">
-          <img :src="link.image"></img>
+          <img :src="link.image">
         </a>
       `,
         props: ["link"]

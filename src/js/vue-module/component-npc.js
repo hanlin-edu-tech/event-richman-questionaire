@@ -7,7 +7,7 @@ define(["vue"], function(Vue) {
       </div>
      
       <div :class="npcClass">
-        <img ref="npcImage" class="npc-character" :src="entireImagePath"></img>
+        <img ref="npcImage" class="npc-character" :src="entireImagePath">
       </div>
     </div>
   `,
