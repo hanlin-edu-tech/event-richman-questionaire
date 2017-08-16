@@ -150,8 +150,7 @@ define(function(require) {
       },
       endMove: function(confirmSeif) {
         v_player.entireImagePath = answer.roleImage;
-        v_result = require("v_result");
-        v_result.popupResult();
+        require("v_result").popupResult();
       }
     }
   };
