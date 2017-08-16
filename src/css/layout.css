@@ -88,7 +88,7 @@ a {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.87);
     z-index: 10;
     display: none;
 }
@@ -106,14 +106,15 @@ a {
 }
 
 #landscape {
-    font-size: 60px;
+    font: normal 60px "微軟正黑體";
 }
 
 #limitedSize {
-    font-size: 45px;
+    font: normal 45px "微軟正黑體";
 }
 
-@media screen and (orientation: portrait) {
+
+/* @media screen and (orientation: portrait) {
     #landscape {
         display: block;
     }
@@ -124,4 +125,4 @@ screen and (max-height: 480px) {
     #limitedSize {
         display: block;
     }
-}
+} */

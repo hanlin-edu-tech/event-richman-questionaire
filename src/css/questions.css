@@ -6,7 +6,7 @@
     background: url("../image/question-background.png") no-repeat;
     background-size: contain;
     min-height: 600px;
-    width: 690px;
+    width: 700%;
     z-index: 1;
 }
 
