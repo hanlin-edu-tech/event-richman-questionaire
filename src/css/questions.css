@@ -6,7 +6,7 @@
     background: url("../image/question-background.png") no-repeat;
     background-size: contain;
     min-height: 600px;
-    width: 700%;
+    width: 690px;
     z-index: 1;
 }
 
@@ -50,4 +50,16 @@
 button.answer-star {
     background: url("../image/star-uncheck.png") no-repeat;
     transition-duration: .2s;
+}
+
+@media screen and (orientation: landscape) {
+    .questions-text {
+        font: normal bold 17px/2 "微軟正黑體";
+    }
+    .questions-frame {
+        width: 710px;
+    }
+    .questions-format {
+        width: 690px;
+    }
 }

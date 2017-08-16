@@ -1,15 +1,16 @@
 require(["config"], function(config) {
   var determineDevice = function() {
     var determineOrientation = function() {
-      var limitedSizeStyle = document.getElementById("limitedSize").style;
-      var deviceDirection =
+      var deviceOrientationStyle = document.getElementById("deviceOrientation")
+        .style;
+      var orientationType =
         Math.abs(window.orientation) === 90 ? "landscape" : "portrait";
 
-      if (deviceDirection === "portrait") {
-        limitedSizeStyle.display = "block";
+      if (orientationType === "portrait") {
+        deviceOrientationStyle.display = "block";
       }
-      if (deviceDirection === "landscape") {
-        limitedSizeStyle.display = "none";
+      if (orientationType === "landscape") {
+        deviceOrientationStyle.display = "none";
       }
     };
 
