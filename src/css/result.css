@@ -91,3 +91,9 @@
     visibility: visible;
     opacity: 1;
 }
+
+@media screen and (orientation: landscape) {
+    .final {
+        min-height: 400px;
+    }
+}

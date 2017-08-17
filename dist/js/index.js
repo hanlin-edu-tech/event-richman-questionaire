@@ -1,1 +1,0 @@
-"use strict";require(["config"],function(config){require(["v_anchorList"]),require(["v_componentProgressButton"]),require(["v_start"]),require(["velocity"],function(velocity){!function(){var container=document.querySelector(".container");container.style.height=.88*document.documentElement.clientHeight+"px",Velocity(container,{backgroundPositionX:0},{duration:5e3,loop:!0})}()})});

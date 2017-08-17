@@ -20,7 +20,7 @@ define(["vue", "round", "v_componentProgressButton"], function(
 
       startMove: function() {
         round.startMove(this, this.roundTarget);
-        ga("send", "event", "question", "pick", "pick4");
+        //ga("send", "event", "question", "pick", "pick4", "2");
       },
 
       endMove: function() {}
