@@ -6,9 +6,10 @@ define(function() {
         "https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min"
       ],
       countUp: ["https://cdn.jsdelivr.net/countupjs/1.8.5/countUp.min"],
+      remind: ["module/remind"],
       answer: ["module/answer"],
-      round: ["module/round"],
       questionsContents: ["module/questions-contents"],
+      round: ["module/round"],
       v_anchorList: ["vue-module/anchor-list"],
       v_componentProgressButton: ["vue-module/progress-button"],
       v_componentNpc: ["vue-module/component-npc"],
