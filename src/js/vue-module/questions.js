@@ -33,31 +33,48 @@ define(["vue", "v_message", "v_player", "answer"], function(
       },
 
       comfirmQuestion: function() {
-        var questionslist, answerStar, pickId, popup;
+        var questionslist, starAnswer, starAnswerId, starPoint, starText, popup;
         var isContinue = false,
           confirm = document.getElementById("confirm");
-        answerStar = this.$el.querySelector(
+        starAnswer = this.$el.querySelector(
           "li button.star[data-determine-click=true]"
         );
+        starAnswerId = starAnswer.id;
+        starPoint = starAnswer.getAttribute("data-point");
+        starText = starAnswer.getAttribute("data-text");
 
         // 讓確認按鈕隱藏，使用者點選答案後會再出現
         confirm.style.visibility = "hidden";
         popup = document.getElementById("popup");
         popup.classList.remove("popup-overlay-visible");
-        answer[this.questionNum].id = answerStar.getAttribute("id");
-        answer[this.questionNum].point = answerStar.getAttribute("data-point");
+        answer[this.questionNum].id = starAnswerId;
+        answer[this.questionNum].point = starPoint;
 
         // 第一題作答結束後，進行角色的轉職設定
         if (this.questionNum === "Q1.") {
           v_message.resetContent();
-          answer.roleImage = answerStar.getAttribute("data-role-image");
-          answer.roleBackImage = answerStar.getAttribute("data-back-image");
-          v_message.text = answerStar.getAttribute("data-role-message");
+          answer.roleImage = starAnswer.getAttribute("data-role-image");
+          answer.roleBackImage = starAnswer.getAttribute("data-back-image");
+          v_message.text = starAnswer.getAttribute("data-role-message");
         }
 
         // 方格淡出
         v_player.girdFadeOut();
         isContinue = true;
+
+        // 發送 GA
+        ga(
+          "send",
+          "event",
+          // 事件
+          starText,
+          // 動作
+          this.content,
+          // label
+          starAnswerId,
+          // value
+          starPoint
+        );
 
         return isContinue;
       }
@@ -78,8 +95,11 @@ define(["vue", "v_message", "v_player", "answer"], function(
         template: `
          <li>
           <button :id="pickId" class="star answer-star" data-determine-click="false"
-            :data-point="pick.point" :data-role-message="pick.roleMessage"
-            :data-role-image="pick.roleImage" :data-back-image="pick.roleBackImage"
+            :data-text="pick.text"
+            :data-point="pick.point" 
+            :data-role-message="pick.roleMessage"
+            :data-role-image="pick.roleImage" 
+            :data-back-image="pick.roleBackImage"
             @mouseover="onStar(pickId)" @mouseout="offStar(pickId)" 
             @click="pickStar(pickId)">
           </button>
@@ -113,20 +133,20 @@ define(["vue", "v_message", "v_player", "answer"], function(
 
             document
               .querySelectorAll("#questions li button")
-              .forEach(function(starButton) {
-                var isClick = starButton.getAttribute("data-determine-click");
-                var starButtonStyle = starButton.style;
+              .forEach(function(starAnswer) {
+                var isClick = starAnswer.getAttribute("data-determine-click");
+                var starButtonStyle = starAnswer.style;
 
-                if (starButton.getAttribute("id") === pickId) {
+                if (starAnswer.id === pickId) {
                   starButtonStyle.backgroundImage = `url("${rootPath}/image/star.png")`;
                   starButtonStyle.outline = "none";
-                  starButton.setAttribute("data-determine-click", true);
+                  starAnswer.setAttribute("data-determine-click", true);
                 } else {
                   if (
-                    starButton.getAttribute("data-determine-click") === "true"
+                    starAnswer.getAttribute("data-determine-click") === "true"
                   ) {
                     starButtonStyle.backgroundImage = `url("${rootPath}/image/star-uncheck.png")`;
-                    starButton.setAttribute("data-determine-click", false);
+                    starAnswer.setAttribute("data-determine-click", false);
                   }
                 }
               });
