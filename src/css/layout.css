@@ -40,8 +40,8 @@ a {
 }
 
 .header-right a {
-  color: #676767;
-  font: normal 500 97% "微軟正黑體";
+  color: #5a5a5a;
+  font: normal 700 105% "微軟正黑體";
 }
 
 .header-right a img {
@@ -112,16 +112,3 @@ a {
 #limitedSize {
   font: normal 45px "微軟正黑體";
 }
-
-/* @media screen and (orientation: portrait) {
-    #landscape {
-        display: block;
-    }
-}
-
-@media screen and (max-width: 700px),
-screen and (max-height: 480px) {
-    #limitedSize {
-        display: block;
-    }
-} */

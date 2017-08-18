@@ -1,6 +1,6 @@
 require(["config"], function(config) {
-  require(["remind"], function(remind) {
-    remind();
+  require(["determineDevice"], function(determineDevice) {
+    determineDevice();
   });
   require(["v_anchorList"]);
   require(["v_componentProgressButton"]);
@@ -52,7 +52,7 @@ require(["config"], function(config) {
       v_player.entireImagePath = "student.png";
       v_message.initial();
 
-      //require("v_result").popupResult();
+      // require("v_result").popupResult();
       setTimeout(function() {
         v_questions.popupQuestion(round.first);
         v_message.popupHint("點選最符合你的選項喔！");

@@ -6,7 +6,7 @@ define(function() {
         "https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min"
       ],
       countUp: ["https://cdn.jsdelivr.net/countupjs/1.8.5/countUp.min"],
-      remind: ["module/remind"],
+      determineDevice: ["module/determineDevice"],
       answer: ["module/answer"],
       questionsContents: ["module/questions-contents"],
       round: ["module/round"],

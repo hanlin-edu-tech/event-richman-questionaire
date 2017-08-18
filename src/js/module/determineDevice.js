@@ -1,5 +1,5 @@
 define(function() {
-  var remind = function() {
+  var determineDevice = function() {
     var determineOrientation = function() {
       var deviceOrientationStyle = document.getElementById("deviceOrientation")
         .style;
@@ -30,7 +30,7 @@ define(function() {
     var isDeplayBlock = false;
     var determineWindowSize = function() {
       var limitedSizeStyle = document.getElementById("limitedSize").style;
-      if (window.innerWidth < 700 || window.innerHeigth < 480) {
+      if (window.innerWidth < 700 || window.innerHeight < 480) {
         if (!isDeplayBlock) {
           limitedSizeStyle.display = "block";
           isDeplayBlock = true;
@@ -43,22 +43,43 @@ define(function() {
       }
     };
 
+    var determinePhoneLayout = function() {
+      var result, resultStyle;
+      if (isIPhone) {
+        alert("iphone");
+        document.getElementById("questions").style.font =
+          "normal 500 67.5%/2 微軟正黑體";
+      } else if (isAndroid) {
+        result = document.getElementById("result");
+        resultStyle = result.style;
+        resultStyle.minHeight = "380px";
+        resultStyle.top = "57%";
+
+        result.querySelector(".final-image").style.width = "50%";
+        result.querySelector(".final-content").style.font =
+          "normal bold 18px/1.4 微軟正黑體";
+      }
+    };
+
     var device = navigator.userAgent;
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        device
-      )
-    ) {
+    var isMobile = /Android|webOS|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i.test(
+      device
+    );
+    var isIPhone = /iPhone/i.test(device);
+    alert(isIPhone);
+    var isAndroid = /Android|webOS/i.test(device);
+    if (isMobile) {
       var isInitial = true,
         isPortraitToLandscape = false;
       determineOrientation();
       isInitial = false;
       window.addEventListener("resize", determineOrientation);
+      determinePhoneLayout();
     } else {
       determineWindowSize();
       window.addEventListener("resize", determineWindowSize);
     }
   };
 
-  return remind;
+  return determineDevice;
 });

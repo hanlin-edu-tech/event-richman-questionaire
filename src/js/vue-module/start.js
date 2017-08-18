@@ -7,7 +7,7 @@ define(["vue", "v_componentProgressButton"], function(
     data: { buttonText: "開始測驗" },
     methods: {
       doAction: function() {
-        location.replace("./richman-map.html");
+        location.replace("./map.html");
       }
     }
   });

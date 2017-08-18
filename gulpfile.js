@@ -1,7 +1,6 @@
 var gulp = require("gulp");
 var imagemin = require("gulp-imagemin");
 var pngquant = require("imagemin-pngquant");
-var clean = require("gulp-clean");
 var cleanCSS = require("gulp-clean-css");
 var uglify = require("gulp-uglify");
 var babel = require("gulp-babel");
@@ -12,47 +11,55 @@ var Q = require("q");
 var basePath = { base: "src" };
 var dist = "dist";
 
-var cleanDir = sourceDir => {
-  return function() {
-    gulp.src(sourceDir).pipe(clean());
+var clean = sourceDir => {
+  var task_clean = () => {
+    return del([sourceDir]);
   };
+  return task_clean;
 };
 
 var copyStaticFile = () => {
-  return function() {
-    gulp
+  var task_copyStaticFile = () => {
+    return gulp
       .src(["src/**/*.html", "src/js/lib/*.js", "src/audio/*"], basePath)
       .pipe(gulp.dest(dist));
   };
+  return task_copyStaticFile;
 };
 
 var babelJS = sourceJS => {
-  return () => {
-    gulp.src(sourceJS, basePath).pipe(babel()).pipe(gulp.dest("babel-temp"));
+  var task_babelJS = () => {
+    return gulp
+      .src(sourceJS, basePath)
+      .pipe(babel())
+      .pipe(gulp.dest("babel-temp"));
   };
-};
-
-var minifyCSS = sourceCss => {
-  return () => {
-    gulp
-      .src(sourceCss, basePath)
-      .pipe(cleanCSS({ keepBreaks: true }))
-      .pipe(gulp.dest(dist));
-  };
+  return task_babelJS;
 };
 
 var minifyImage = sourceImage => {
-  return () => {
-    gulp
+  var task_minifyImage = () => {
+    return gulp
       .src(sourceImage, basePath)
       .pipe(imagemin({ use: [pngquant()] }))
       .pipe(gulp.dest(dist));
   };
+  return task_minifyImage;
+};
+
+var minifyCSS = sourceCss => {
+  var task_minifyCSS = () => {
+    return gulp
+      .src(sourceCss, basePath)
+      .pipe(cleanCSS({ keepBreaks: true }))
+      .pipe(gulp.dest(dist));
+  };
+  return task_minifyCSS;
 };
 
 var minifyJS = sourceJS => {
-  return () => {
-    gulp
+  var task_minifyJS = () => {
+    return gulp
       .src(sourceJS, { base: "babel-temp" })
       .pipe(
         uglify({ mangle: false }).on("error", function(error) {
@@ -61,33 +68,25 @@ var minifyJS = sourceJS => {
       )
       .pipe(gulp.dest(dist));
   };
+  return task_minifyJS;
 };
 
-gulp.task("clean", cleanDir(dist));
-gulp.task("cleanBabel", cleanDir("babel-temp"));
-gulp.task("copyStaticFile", copyStaticFile(dist));
+gulp.task("clean", clean(dist));
+gulp.task("cleanBabel", clean("babel-temp"));
+gulp.task("copyStaticFile", copyStaticFile());
 gulp.task("babelJS", babelJS(["src/js/*.js", "src/js/*module/*.js"]));
 gulp.task("minifyCSS", minifyCSS("src/css/*.css"));
 gulp.task("minifyImage", minifyImage("src/image/*.png"));
 gulp.task("minifyJS", minifyJS("babel-temp/js/**/*.js"));
-gulp.task("build", [
-  "clean",
-  "copyStaticFile",
-  "babelJS",
-  "minifyCSS",
-  "minifyImage",
-  "minifyJS"
-  // "cleanBabel"
-]);
 
-gulp.task("package", function() {
+gulp.task("build", () => {
   var deferred = Q.defer();
   Q.fcall(function() {
-    return templateUtil.logPromise(cleanDir(dist));
+    return templateUtil.logPromise(clean(dist));
   })
     .then(function() {
       return Q.all([
-        templateUtil.logStream(copyStaticFile(dist)),
+        templateUtil.logStream(copyStaticFile()),
         templateUtil.logStream(babelJS(["src/js/*.js", "src/js/*module/*.js"]))
       ]);
     })
@@ -99,7 +98,7 @@ gulp.task("package", function() {
       ]);
     })
     .then(function() {
-      return templateUtil.logPromise(cleanDir("babel-temp"));
+      return templateUtil.logPromise(clean("babel-temp"));
     });
 
   return deferred.promise;

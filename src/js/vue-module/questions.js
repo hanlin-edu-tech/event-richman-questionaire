@@ -83,10 +83,10 @@ define(["vue", "v_message", "v_player", "answer"], function(
     components: {
       question: {
         template: `
-        <h2>
+        <h1>
           <span class="questions-num">{{questionNum}}</span>
           {{content}}
-        </h2>
+        </h1>
       `,
         props: ["content", "questionNum"]
       },
