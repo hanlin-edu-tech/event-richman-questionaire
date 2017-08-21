@@ -1,7 +1,7 @@
 define(["v_initializeDevice"], function(v_initializeDevice) {
   var inspect = function() {
     var device = navigator.userAgent;
-    isMobile = /Android|webOS|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i.test(
+    var isMobile = /Android|webOS|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i.test(
       device
     );
     v_initializeDevice.isIPhone = /iPhone/i.test(device);
