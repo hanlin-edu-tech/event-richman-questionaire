@@ -7,8 +7,7 @@
   <meta name="copyright" content="ehainlin">
   <meta name="description" content="翰林雲端-測試你的學霸指數">
   <meta name="eHanlin - 翰林雲端學院" content="eHanlin - 翰林雲端學院 Smart Learning!">
-  <meta property="og:url" content="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/richman-questionnaire/fb-aggressive.html"
-  />
+  <meta property="og:url" content="https://test.ehanlin.com.tw/event/richman-questionnaire/fb-aggressive.html" />
   <meta property="og:title" content="翰林雲端 學霸測驗結果：學習風格是「主動型」" />
   <meta property="og:description" content="你的學習風格是「主動型」，喜歡在群體中相互學習相互成長，和同學一起切磋是比較適合你的學習方式，同時你也需要不斷練習題庫加強自己哦！翰林雲端學院擁有全國最大的線上題庫，包準你在同儕中鶴立雞群！"
   />
@@ -16,49 +15,109 @@
   />
   <link rel="stylesheet" type="text/css" href="./css/reset.css">
   <link rel="stylesheet" type="text/css" href="./css/layout.css">
-  <link rel="stylesheet" type="text/css" href="./css/study-master.css">
+  <link rel="stylesheet" type="text/css" href="./css/map.css">
+  <link rel="stylesheet" type="text/css" href="./css/loading.css">
+  <link rel="stylesheet" type="text/css" href="./css/player.css">
+  <link rel="stylesheet" type="text/css" href="./css/message.css">
+  <link rel="stylesheet" type="text/css" href="./css/popup.css">
   <link rel="stylesheet" type="text/css" href="./css/progress-button.css">
-  <script id="rootPath" data-value="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-richman-questionnaire/0.0.7-SNAPSHOT"
-    type="text"></script>
+  <link rel="stylesheet" type="text/css" href="./css/questions.css">
+  <link rel="stylesheet" type="text/css" href="./css/npc.css">
+  <link rel="stylesheet" type="text/css" href="./css/result.css">
+  <script id="rootPath" data-value="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-richman-questionnaire/0.0.9-SNAPSHOT"></script>
+  <!-- Google Analytics -->
+  <script>
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+    ga('create', 'UA-104669522-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- End Google Analytics -->
 </head>
 
 <body>
   <audio src="./audio/jazz.mp3" autoplay loop></audio>
-  <div id="deviceOrientation" class="remind">
-    <div class="center">
-      <span>建議您，</span>
-      <span>為了提供最佳網頁體驗，</span>
-      <span>請將螢幕調整為橫向顯示哦！</span>
-    </div>
+  <div id="initialize-device">
+    <remind></remind>
   </div>
-  <div id="limitedSize" class="remind">
-    <div class="center">
-      <span>建議您，</span>
-      <span>為了提供最佳網頁體驗，</span>
-      <span>請調整為原來的視窗大小喔！</span>
-    </div>
-  </div>
-  <div id="initial"></div>
   <div class="layout">
     <header class="header">
       <div class="header-left">
-        <a href="https://www.ehanlin.com.tw"><img src="./image/ehanlin.png"></img></a>
+        <a href="https://www.ehanlin.com.tw"><img src="./image/ehanlin.png"></a>
       </div>
       <div id="anchor-list" class="header-right">
         <ehanlin-link :link="anchor" v-for="anchor in anchors"></ehanlin-link>
       </div>
     </header>
+    <div id="map-loading" style="display:none;">
+      <h1 class="ehanlin-loading" data-ehanlin="eHanlin loading...">eHanlin loading...</h1>
+    </div>
+    <div class="mask"></div>
 
-    <main class="container container-index">
-      <div class="study-master center">
-        <img class="study-master-img" src="./image/study-master.png"></img>
-        <div id="start" class="start-button">
-          <progress-button :button-class="['start-button-font', 'button-frame-inner']" @click="doAction">{{buttonText}}</progress-button>
+    <main class="container container-map">
+      <section class="platform">
+        <div id="map" class="richman-map">
+          <div id="npc-toast">
+            <npc ref="toast" :entire-image-path="entireImagePath" :npc-class="npcClass" :npc-dialog-class="npcDialogClass"></npc>
+          </div>
+          <div id="npc-ice-cream">
+            <npc ref="iceCream" :entire-image-path="entireImagePath" :npc-class="npcClass" :npc-dialog-class="npcDialogClass"></npc>
+          </div>
         </div>
-      </div>
+        <div id="player" class="player-position">
+          <light-grid ref="lightGrid"></light-grid>
+          <player-role ref="student" :image="entireImagePath"></player-role>
+        </div>
+        <div id="player-dialog" class="player-point">
+          <h1 id="grade-point" class="player-point-text"></h1>
+        </div>
+      </section>
     </main>
   </div>
+
+  <div id="message" style="display:none" :class="cssClass">
+    <div class="message-hint">
+      {{hint}}
+    </div>
+    <div>
+      {{text}}
+    </div>
+  </div>
+
+  <section id="popup" style="display: none;">
+    <div class="popup-question center">
+      <div class="questions-frame">
+        <ul id="questions" class="questions-format questions-text">
+          <question :question-num="questionNum" :content="content"></question>
+          <pick-options :pick="option" :pick-id="option.id" v-for="option in options" :key="option.id"></pick-options>
+        </ul>
+      </div>
+      <div id="confirm" class="confirm-button">
+        <progress-button :button-class="['confirm-button-font', 'button-frame-inner']" @click="startMove">{{buttonText}}</progress-button>
+        <keep-walk :is-move="isMove" :step="step" :direction="direction" :move-duration="moveDuration" @switch="switchMove" @end-move="endMove"></keep-walk>
+      </div>
+    </div>
+  </section>
+
+  <div id="result" class="final">
+    <audio id="audioResult" src="./audio/result.mp3"></audio>
+    <div class="final-result">
+      <img class="final-image" :src="finalImage"></img>
+      <div class="final-point">
+        你的學霸指數是<br/> <span>{{grade}}</span> 分
+      </div>
+    </div>
+    <div class="final-content">
+      <hr color="black">{{finalContent}}
+    </div>
+    <div>
+      <button id="fb-share" class="final-button final-button-share">分享你的學霸指數</button>
+      <button id="learn-intro" class="final-button final-button-learn">輕鬆學習祕技看這裡</button>
+    </div>
+  </div>
+  <img id="abli" class="learn-guide" src="./image/albi.png">
+  <div id="fb-root"></div>
 </body>
-<script data-main="./js/main" src="./js/lib/require.js"></script>
+<script data-main="./js/index-map" src="./js/lib/require.js"></script>
 
 </html>

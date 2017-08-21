@@ -4,7 +4,6 @@ require(["config"], function(config) {
   });
   require(["v_componentProgressButton"]);
   require(["v_anchorList"], function(v_anchorList) {
-    console.log("GG");
     v_anchorList.gaSend();
   });
   require(["v_start"]);
@@ -19,7 +18,6 @@ require(["config"], function(config) {
         { duration: 5000, loop: true }
       );
     };
-
     settingBody();
   });
 });

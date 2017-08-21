@@ -3,7 +3,7 @@ define(["vue", "v_playerDialog", "answer"], function(
   v_playerDialog,
   answer
 ) {
-  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
+  var rootPath = "https://test.ehanlin.com.tw/event/richman-questionnaire";
   var v_result = new Vue({
     el: "#result",
     data: {
@@ -62,10 +62,19 @@ define(["vue", "v_playerDialog", "answer"], function(
           }
         };
 
-        var shareFB = function() {
+        var on106Intro = function() {
+          var learnIntro = document.getElementById("learn-intro");
+          learnIntro.addEventListener("click", function() {
+            ga("send", "event", learnIntro.textContent, "anchor", "連結");
+            location.href = "http://www.ehanlin.com.tw/106intro.html";
+          });
+        };
+
+        var onShareFB = function() {
           document
             .getElementById("fb-share")
             .addEventListener("click", function() {
+              alert("GG");
               ga("send", "social", "Facebook", "share", url);
 
               window.open(
@@ -83,7 +92,8 @@ define(["vue", "v_playerDialog", "answer"], function(
         var url;
 
         determineResult();
-        shareFB();
+        on106Intro();
+        onShareFB();
         setTimeout(function() {
           var audioResult, abli;
           audioResult = document.getElementById("audioResult");

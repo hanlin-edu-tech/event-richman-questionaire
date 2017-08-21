@@ -50,8 +50,14 @@ define(["vue"], function(Vue) {
           if (gaCategory) {
             singleAnchor.addEventListener("click", function(event) {
               event.preventDefault();
-              ga("send", "event", gaCategory, "anchor", "連結");
-              local.href = singleAnchor.href;
+              ga(
+                "send",
+                "event",
+                this.getAttribute("data-category"),
+                "anchor",
+                "連結"
+              );
+              location.href = this.href;
             });
           }
         }
