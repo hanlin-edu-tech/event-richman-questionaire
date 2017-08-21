@@ -5,7 +5,8 @@ define(["vue"], function(Vue) {
     data: {
       anchors: [
         {
-          href: "",
+          href:
+            "https://www.ehanlin.com.tw/event/richman-questionnaire/main.html",
           text: "再玩一次 "
         },
         {
