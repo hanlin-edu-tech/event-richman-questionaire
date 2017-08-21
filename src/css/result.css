@@ -1,96 +1,96 @@
 .final {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #ffff7a;
-    border: 7px solid #ffb981;
-    width: 55%;
-    height: auto;
-    min-width: 630px;
-    min-height: 400px;
-    color: black;
-    transition: all .5s linear;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 5;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffff7a;
+  border: 7px solid #ffb981;
+  width: 55%;
+  height: auto;
+  min-width: 630px;
+  min-height: 400px;
+  color: black;
+  transition: all .5s linear;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 5;
 }
 
 .final-visible {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 .final-result {
-    position: absolute;
-    left: 2%;
-    top: 13%;
-    width: 96%;
-    height: 35%;
+  position: absolute;
+  left: 2%;
+  top: 13%;
+  width: 96%;
+  height: 35%;
 }
 
 .final-image {
-    position: absolute;
-    left: 0;
-    bottom: 5%;
-    width: 48%;
-    border: 3px solid black;
+  position: absolute;
+  left: 0;
+  bottom: 5%;
+  width: 48%;
+  border: 3px solid black;
 }
 
 .final-point {
-    position: absolute;
-    top: 10%;
-    right: 15%;
-    font: italic bold 24px "微軟正黑體";
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  font: italic bold 24px "微軟正黑體";
 }
 
 .final-point span {
-    color: #ff5a1d;
-    font: bold 300% "微軟正黑體";
+  color: #ff5a1d;
+  font: bold 300% "微軟正黑體";
 }
 
 .final-content {
-    position: absolute;
-    left: 2%;
-    top: 47%;
-    width: 97%;
-    height: 35%;
-    font: normal bold 20px/1.4 "微軟正黑體";
+  position: absolute;
+  left: 2%;
+  top: 47%;
+  width: 97%;
+  height: 35%;
+  font: normal bold 20px/1.4 "微軟正黑體";
 }
 
 .final-button {
-    position: absolute;
-    top: 88%;
-    width: 45%;
-    border: 3px solid black;
-    border-radius: 5px;
-    color: white;
-    font: normal bold 24px "微軟正黑體";
-    outline: none;
+  position: absolute;
+  top: 88%;
+  width: 45%;
+  border: 3px solid black;
+  border-radius: 5px;
+  color: white;
+  font: normal bold 24px "微軟正黑體";
+  outline: none;
 }
 
 .final-button-learn {
-    right: 2%;
-    background-color: #fe421f;
+  right: 2%;
+  background-color: #fe421f;
 }
 
 .final-button-share {
-    left: 2%;
-    background-color: #1f68fe;
-    color: white;
+  left: 2%;
+  background-color: #1f68fe;
+  color: white;
 }
 
 .learn-guide {
-    position: fixed;
-    top: 9%;
-    right: 5%;
-    transition: opacity .5s linear;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 6;
+  position: fixed;
+  top: 9%;
+  right: 5%;
+  transition: opacity .5s linear;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 6;
 }
 
 .learn-guide[data-show=true] {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
