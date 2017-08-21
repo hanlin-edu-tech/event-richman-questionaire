@@ -86,7 +86,7 @@ define(["vue", "v_playerDialog", "answer"], function(
         };
 
         var resultSelf = this;
-        var url = "https://test.ehanlin.com.tw/event/richman-questionnaire";
+        var url = "https://www.ehanlin.com.tw/event/richman-questionnaire";
 
         determineResult();
         on106Intro();

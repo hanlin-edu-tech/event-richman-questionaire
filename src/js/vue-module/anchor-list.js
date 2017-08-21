@@ -16,7 +16,7 @@ define(["vue"], function(Vue) {
         {
           href: "https://www.ehanlin.com.tw/106intro.html",
           text: "輕鬆學習課程 ",
-          category: "輕鬆學習課程"
+          category: "輕鬆學習祕技"
         },
         {
           image: `${rootPath}/image/facebook.png`,
