@@ -6,10 +6,11 @@ define(function() {
         "https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min"
       ],
       countUp: ["https://cdn.jsdelivr.net/countupjs/1.8.5/countUp.min"],
-      determineDevice: ["module/determineDevice"],
+      inspect: ["module/inspect"],
       answer: ["module/answer"],
       questionsContents: ["module/questions-contents"],
       round: ["module/round"],
+      v_initializeDevice: ["vue-module/initialize-device"],
       v_anchorList: ["vue-module/anchor-list"],
       v_componentProgressButton: ["vue-module/progress-button"],
       v_componentNpc: ["vue-module/component-npc"],

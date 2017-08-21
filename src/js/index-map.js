@@ -1,6 +1,6 @@
 require(["config"], function(config) {
-  require(["determineDevice"], function(determineDevice) {
-    determineDevice();
+  require(["inspect"], function(inspect) {
+    inspect();
   });
   require(["v_anchorList"]);
   require(["v_componentProgressButton"]);
@@ -21,14 +21,13 @@ require(["config"], function(config) {
     };
 
     var initialMap = function() {
-      var container, mask;
+      var container, mask, map;
       container = document.querySelector(".container");
-      container.style.height = `${document.documentElement.clientHeight *
-        0.88}px`;
+      container.style.height = `${window.innerHeight * 0.88}px`;
 
       mask = document.querySelector(".mask");
-      mask.style.height = `${document.documentElement.clientHeight}px`;
-      var map = document.getElementById("map");
+      mask.style.height = `${document.documentElement.clientHeight * 1.02}px`;
+      map = document.getElementById("map");
       Velocity(
         map,
         { right: "840px", top: "270px" },
@@ -36,19 +35,39 @@ require(["config"], function(config) {
       );
     };
 
+    // 預先載入角色背面圖
+    var preloadRoleImages = function() {
+      var roleImages = [
+        "role1-back.png",
+        "role2-back.png",
+        "role3-back.png",
+        "role4-back.png"
+      ];
+
+      for (var i = 0; i < roleImages.length; i++) {
+        v_player.entireImagePath = roleImages[i];
+      }
+
+      setTimeout(function() {
+        v_player.resetImage();
+      }, 500);
+    };
+
     var mapLoading = document.getElementById("map-loading");
     initialMap();
     loading();
+    preloadRoleImages();
 
     /*
      * 頁面一開始預設 #message 是看不見的，
-     * initial 時移除 style:display
+     * initial 時，移除 style:display
      * 讓訊息可正常呈現
      */
     document.getElementById("message").removeAttribute("style");
 
     setTimeout(function() {
       mapLoading.remove();
+      // 遊戲起始角色
       v_player.entireImagePath = "student.png";
       v_message.initial();
 

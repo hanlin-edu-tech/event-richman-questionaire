@@ -1,15 +1,17 @@
 require(["config"], function(config) {
-  require(["remind"], function(remind) {
-    remind();
+  require(["inspect"], function(inspect) {
+    inspect();
   });
   require(["v_componentProgressButton"]);
-  require(["v_anchorList"]);
+  require(["v_anchorList"], function(v_anchorList) {
+    console.log("GG");
+    v_anchorList.gaSend();
+  });
   require(["v_start"]);
   require(["velocity"], function(velocity) {
     var settingBody = function() {
       var container = document.querySelector(".container");
-      container.style.height = `${document.documentElement.clientHeight *
-        0.88}px`;
+      container.style.height = `${window.innerHeight * 0.88}px`;
 
       Velocity(
         container,

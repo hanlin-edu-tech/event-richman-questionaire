@@ -66,7 +66,7 @@ define(["vue", "v_message", "v_player", "answer"], function(
         ga(
           "send",
           "event",
-          // 事件
+          // 事件類別
           starText,
           // 動作
           this.content,
@@ -131,25 +131,26 @@ define(["vue", "v_message", "v_player", "answer"], function(
             var confirm = document.getElementById("confirm");
             confirm.style.visibility = "visible";
 
-            document
-              .querySelectorAll("#questions li button")
-              .forEach(function(starAnswer) {
-                var isClick = starAnswer.getAttribute("data-determine-click");
-                var starButtonStyle = starAnswer.style;
+            var starAnswers = document.querySelectorAll("#questions li button");
 
-                if (starAnswer.id === pickId) {
-                  starButtonStyle.backgroundImage = `url("${rootPath}/image/star.png")`;
-                  starButtonStyle.outline = "none";
-                  starAnswer.setAttribute("data-determine-click", true);
-                } else {
-                  if (
-                    starAnswer.getAttribute("data-determine-click") === "true"
-                  ) {
-                    starButtonStyle.backgroundImage = `url("${rootPath}/image/star-uncheck.png")`;
-                    starAnswer.setAttribute("data-determine-click", false);
-                  }
+            for (var i = 0; i < starAnswers.length; i++) {
+              starAnswer = starAnswers[i];
+              var isClick = starAnswer.getAttribute("data-determine-click");
+              var starAnswerStyle = starAnswer.style;
+
+              if (starAnswer.id === pickId) {
+                starAnswerStyle.backgroundImage = `url("${rootPath}/image/star.png")`;
+                starAnswerStyle.outline = "none";
+                starAnswer.setAttribute("data-determine-click", true);
+              } else {
+                if (
+                  starAnswer.getAttribute("data-determine-click") === "true"
+                ) {
+                  starAnswerStyle.backgroundImage = `url("${rootPath}/image/star-uncheck.png")`;
+                  starAnswer.setAttribute("data-determine-click", false);
                 }
-              });
+              }
+            }
           }
         }
       }

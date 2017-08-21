@@ -41,7 +41,7 @@ a {
 
 .header-right a {
   color: #5a5a5a;
-  font: normal 700 105% "微軟正黑體";
+  font: normal 650 100% "微軟正黑體";
 }
 
 .header-right a img {
@@ -105,10 +105,10 @@ a {
   line-height: 100px;
 }
 
-#deviceOrientation {
+#device-orientation {
   font: normal 60px "微軟正黑體";
 }
 
-#limitedSize {
+#limited-size {
   font: normal 45px "微軟正黑體";
 }

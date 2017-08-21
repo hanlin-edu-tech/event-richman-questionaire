@@ -79,7 +79,7 @@ gulp.task("minifyCSS", minifyCSS("src/css/*.css"));
 gulp.task("minifyImage", minifyImage("src/image/*.png"));
 gulp.task("minifyJS", minifyJS("babel-temp/js/**/*.js"));
 
-gulp.task("build", () => {
+gulp.task("package", () => {
   var deferred = Q.defer();
   Q.fcall(function() {
     return templateUtil.logPromise(clean(dist));

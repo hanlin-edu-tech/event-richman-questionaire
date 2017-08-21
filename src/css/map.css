@@ -1,40 +1,40 @@
 .platform {
-    position: absolute;
-    left: calc(50% - 1300px);
-    top: calc(50% - 650px);
-    width: 2600px;
-    height: 1300px;
-    background-color: #e8fffe;
+  position: absolute;
+  left: calc(50% - 1300px);
+  top: calc(50% - 650px);
+  width: 2600px;
+  height: 1300px;
+  background-color: #e8fffe;
 }
 
 .mask {
-    position: absolute;
-    left: -3%;
-    top: -10%;
-    width: 105.5%;
-    background-color: #fffde8;
-    overflow: hidden;
+  position: absolute;
+  left: -3%;
+  top: -10%;
+  width: 105.5%;
+  background-color: #fffde8;
+  overflow: hidden;
 }
 
 .richman-map {
-    position: absolute;
-    width: 3246px;
-    height: 1392px;
-    background: url("../image/map.png") no-repeat;
-    background-color: #e8fffe;
+  position: absolute;
+  width: 3246px;
+  height: 1392px;
+  background: url("../image/map.png") no-repeat;
+  background-color: #e8fffe;
 }
 
 @keyframes move {
-    0% {
-        left: 3000px;
-        top: 2000px;
-    }
-    50% {
-        left: 2700px;
-        top: 1800px;
-    }
-    100% {
-        left: 3000px;
-        top: 2000px;
-    }
+  0% {
+    left: 3000px;
+    top: 2000px;
+  }
+  50% {
+    left: 2700px;
+    top: 1800px;
+  }
+  100% {
+    left: 3000px;
+    top: 2000px;
+  }
 }

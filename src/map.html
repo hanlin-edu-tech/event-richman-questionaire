@@ -31,19 +31,8 @@
 
 <body>
   <audio src="./audio/jazz.mp3" autoplay loop></audio>
-  <div id="deviceOrientation" class="remind">
-    <div class="center">
-      <span>建議您，</span>
-      <span>為了提供最佳網頁體驗，</span>
-      <span>請將螢幕調整為橫向顯示哦！</span>
-    </div>
-  </div>
-  <div id="limitedSize" class="remind">
-    <div class="center">
-      <span>建議您，</span>
-      <span>為了提供最佳網頁體驗，</span>
-      <span>請將視窗調整為最大化顯示哦！</span>
-    </div>
+  <div id="initialize-device">
+    <remind></remind>
   </div>
   <div class="layout">
     <header class="header">
@@ -104,14 +93,13 @@
     </div>
   </section>
 
-  <div id="result" class="final center">
+  <div id="result" class="final">
     <audio id="audioResult" src="./audio/result.mp3"></audio>
     <div class="final-result">
       <img class="final-image" :src="finalImage"></img>
       <div class="final-point">
         你的學霸指數是<br/> <span>{{grade}}</span> 分
       </div>
-
     </div>
     <div class="final-content">
       <hr color="black">{{finalContent}}

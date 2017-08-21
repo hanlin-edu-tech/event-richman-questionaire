@@ -62,13 +62,19 @@ define(["vue", "v_playerDialog", "answer"], function(
           }
         };
 
-        var shareToFB = function() {
-          window.open(
-            "https://www.facebook.com/sharer/sharer.php?u=" +
-              encodeURIComponent(url),
-            "facebook-share-dialog",
-            "width=626,height=436"
-          );
+        var shareFB = function() {
+          document
+            .getElementById("fb-share")
+            .addEventListener("click", function() {
+              ga("send", "social", "Facebook", "share", url);
+
+              window.open(
+                "https://www.facebook.com/sharer/sharer.php?u=" +
+                  encodeURIComponent(url),
+                "facebook-share-dialog",
+                "width=626,height=436"
+              );
+            });
         };
 
         var resultSelf = this;
@@ -76,10 +82,8 @@ define(["vue", "v_playerDialog", "answer"], function(
           "https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/richman-questionnaire";
         var url;
 
-        document
-          .getElementById("fb-share")
-          .addEventListener("click", shareToFB);
         determineResult();
+        shareFB();
         setTimeout(function() {
           var audioResult, abli;
           audioResult = document.getElementById("audioResult");
