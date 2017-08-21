@@ -71,13 +71,31 @@ var minifyJS = sourceJS => {
   return task_minifyJS;
 };
 
+var buildJS = () => {
+  var deferred = Q.defer();
+  Q.fcall(function() {
+    return templateUtil.logStream(
+      babelJS(["src/js/*.js", "src/js/*module/*.js"])
+    );
+  })
+    .then(function() {
+      return templateUtil.logStream(minifyJS("babel-temp/js/**/*.js"));
+    })
+    .then(function() {
+      return templateUtil.logPromise(clean("babel-temp"));
+    });
+
+  return deferred.promise;
+};
+
 gulp.task("clean", clean(dist));
-gulp.task("cleanBabel", clean("babel-temp"));
+// gulp.task("cleanBabel", clean("babel-temp"));
 gulp.task("copyStaticFile", copyStaticFile());
-gulp.task("babelJS", babelJS(["src/js/*.js", "src/js/*module/*.js"]));
+// gulp.task("babelJS", babelJS(["src/js/*.js", "src/js/*module/*.js"]));
 gulp.task("minifyCSS", minifyCSS("src/css/*.css"));
 gulp.task("minifyImage", minifyImage("src/image/*.png"));
-gulp.task("minifyJS", minifyJS("babel-temp/js/**/*.js"));
+//gulp.task("minifyJS", minifyJS("babel-temp/js/**/*.js"));
+gulp.task("buildJS", buildJS);
 
 gulp.task("package", () => {
   var deferred = Q.defer();
@@ -86,20 +104,15 @@ gulp.task("package", () => {
   })
     .then(function() {
       return Q.all([
-        templateUtil.logStream(copyStaticFile()),
-        templateUtil.logStream(babelJS(["src/js/*.js", "src/js/*module/*.js"]))
+        templateUtil.logStream(copyStaticFile())
+        //templateUtil.logStream(babelJS(["src/js/*.js", "src/js/*module/*.js"]))
       ]);
     })
     .then(function() {
       return Q.all([
         templateUtil.logStream(minifyImage("src/image/*.png")),
         templateUtil.logStream(minifyCSS("src/css/*.css")),
-        templateUtil.logStream(minifyJS("babel-temp/js/**/*.js"))
+        templateUtil.logStream(buildJS)
       ]);
-    })
-    .then(function() {
-      return templateUtil.logPromise(clean("babel-temp"));
     });
-
-  return deferred.promise;
 });

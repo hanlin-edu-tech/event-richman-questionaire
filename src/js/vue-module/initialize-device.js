@@ -18,14 +18,14 @@ define(["vue"], function(Vue) {
       remind: {
         template: `
         <div>
-          <div id="device-orientation" class="remind">
+          <div id="device-orientation" class="remind remind-device-orientation">
             <div class="center">
               <span>建議您，</span>
               <span>為了提供最佳網頁體驗，</span>
               <span>請將螢幕調整為橫向顯示哦！</span>
             </div>
           </div>
-          <div id="limited-size" class="remind">
+          <div id="limited-size" class="remind remind-limited-size">
             <div class="center">
               <span>建議您，</span>
               <span>為了提供最佳網頁體驗，</span>

@@ -128,15 +128,15 @@ define(["vue", "v_message", "v_player", "answer"], function(
           },
 
           pickStar: function(pickId) {
-            var confirm = document.getElementById("confirm");
+            var confirm, starAnswers, starAnswer, starAnswerStyle, isClick;
+            confirm = document.getElementById("confirm");
             confirm.style.visibility = "visible";
 
-            var starAnswers = document.querySelectorAll("#questions li button");
-
+            starAnswers = document.querySelectorAll("#questions li button");
             for (var i = 0; i < starAnswers.length; i++) {
               starAnswer = starAnswers[i];
-              var isClick = starAnswer.getAttribute("data-determine-click");
-              var starAnswerStyle = starAnswer.style;
+              starAnswerStyle = starAnswer.style;
+              isClick = starAnswer.getAttribute("data-determine-click");
 
               if (starAnswer.id === pickId) {
                 starAnswerStyle.backgroundImage = `url("${rootPath}/image/star.png")`;
