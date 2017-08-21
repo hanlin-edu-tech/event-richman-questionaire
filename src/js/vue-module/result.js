@@ -3,7 +3,7 @@ define(["vue", "v_playerDialog", "answer"], function(
   v_playerDialog,
   answer
 ) {
-  var rootPath = "https://test.ehanlin.com.tw/event/richman-questionnaire";
+  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
   var v_result = new Vue({
     el: "#result",
     data: {
@@ -25,7 +25,7 @@ define(["vue", "v_playerDialog", "answer"], function(
           和同學一起切磋是比較適合你的學習方式，
           同時你也需要不斷練習題庫加強自己哦！
           翰林雲端學院擁有全國最大的線上題庫，包準你在同儕中鶴立雞群！`;
-              url = `${root}/fb-aggressive.html`;
+              url = `${url}/fb-aggressive.html`;
 
               break;
             case "Q3_2":
@@ -36,7 +36,7 @@ define(["vue", "v_playerDialog", "answer"], function(
           試著在閱讀完後寫下摘要或聆聽他人解說，會更有效率的學習哦！
           翰林雲端學院擁有名師線上影音教學，親自傳授獨門高分祕法，
           絕對讓你輕鬆了解各科內容！`;
-              url = `${root}/fb-hearing.html`;
+              url = `${url}/fb-hearing.html`;
               break;
             case "Q3_3":
               resultSelf.grade = v_playerDialog.endGrade;
@@ -46,7 +46,7 @@ define(["vue", "v_playerDialog", "answer"], function(
           你可以在學習過程中偶爾停下來複習之前讀過的內容或多做相關的題目融會貫通，
           會讓學習更有成效哦！翰林雲端學院提供你資源最多的線上學習，
           讓你有效且隨時鍛鍊自己的能力！`;
-              url = `${root}/fb-meditation.html`;
+              url = `${url}/fb-meditation.html`;
               break;
             case "Q3_4":
               resultSelf.grade = v_playerDialog.endGrade;
@@ -57,7 +57,7 @@ define(["vue", "v_playerDialog", "answer"], function(
           可以為你節省很多學習時間哦！
           翰林雲端學院邀請名師為您整理了每一科目的重點，
           並階段性的提供你簡單及進階的題目、試卷，讓你更輕鬆的學習！`;
-              url = `${root}/fb-sequence.html`;
+              url = `${url}/fb-sequence.html`;
               break;
           }
         };
@@ -74,7 +74,6 @@ define(["vue", "v_playerDialog", "answer"], function(
           document
             .getElementById("fb-share")
             .addEventListener("click", function() {
-              alert("GG");
               ga("send", "social", "Facebook", "share", url);
 
               window.open(
@@ -87,9 +86,7 @@ define(["vue", "v_playerDialog", "answer"], function(
         };
 
         var resultSelf = this;
-        var root =
-          "https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/richman-questionnaire";
-        var url;
+        var url = "https://test.ehanlin.com.tw/event/richman-questionnaire";
 
         determineResult();
         on106Intro();
