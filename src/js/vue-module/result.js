@@ -91,6 +91,8 @@ define(["vue", "v_playerDialog", "answer"], function(
         determineResult();
         on106Intro();
         onShareFB();
+
+        // 秀出測驗結果
         setTimeout(function() {
           var audioResult, abli;
           audioResult = document.getElementById("audioResult");
