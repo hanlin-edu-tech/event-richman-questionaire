@@ -66,7 +66,7 @@ define(["vue", "v_playerDialog", "answer"], function(
           var learnIntro = document.getElementById("learn-intro");
           learnIntro.addEventListener("click", function() {
             ga("send", "event", learnIntro.textContent, "anchor", "連結");
-            location.href = "http://www.ehanlin.com.tw/106intro.html";
+            location.href = "https://www.ehanlin.com.tw/106intro.html";
           });
         };
 
