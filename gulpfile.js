@@ -89,12 +89,9 @@ var buildJS = () => {
 };
 
 gulp.task("clean", clean(dist));
-// gulp.task("cleanBabel", clean("babel-temp"));
 gulp.task("copyStaticFile", copyStaticFile());
-// gulp.task("babelJS", babelJS(["src/js/*.js", "src/js/*module/*.js"]));
 gulp.task("minifyCSS", minifyCSS("src/css/*.css"));
 gulp.task("minifyImage", minifyImage("src/image/*.png"));
-//gulp.task("minifyJS", minifyJS("babel-temp/js/**/*.js"));
 gulp.task("buildJS", buildJS);
 
 gulp.task("package", () => {
@@ -103,10 +100,7 @@ gulp.task("package", () => {
     return templateUtil.logPromise(clean(dist));
   })
     .then(function() {
-      return Q.all([
-        templateUtil.logStream(copyStaticFile())
-        //templateUtil.logStream(babelJS(["src/js/*.js", "src/js/*module/*.js"]))
-      ]);
+      return Q.all([templateUtil.logStream(copyStaticFile())]);
     })
     .then(function() {
       return Q.all([
