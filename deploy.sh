@@ -14,3 +14,5 @@ case "${TRAVIS_TAG}" in
 	curl -X POST -H "${contentTypeJson}" -d "${repository}" "${production}"
 	;;
 esac
+
+node uploadS3.js ehanlin-web-resource event-richman-questionnaire/current

@@ -10,7 +10,7 @@ AWS.config.update({
 });
 
 const AWS_S3 = new AWS.S3();
-const SOURCE_DIR = `${__dirname}/src`;
+const SOURCE_DIR = `${__dirname}/dist`;
 
 /**
  * 執行 uploadS3 所帶參數
@@ -41,7 +41,7 @@ var determineFileEmpty = files => {
 /**
  * 循環掃描來源資料夾下的檔案並執行 AWS S3 上傳
  */
-var scanDir = sourceDir => {
+var scanDir = directory => {
   var upload = (fileName, remoteS3Path, entireFilePath) => {
     var key = remoteS3Path;
     var params = {
@@ -72,13 +72,13 @@ var scanDir = sourceDir => {
       });
   };
 
-  FS.readdir(sourceDir, (err, files) => {
+  FS.readdir(directory, (err, files) => {
     if (determineFileEmpty(files)) return;
 
     files.forEach(fileName => {
       if (excludeFile.test(fileName)) return;
 
-      entireFilePath = PATH.join(sourceDir, fileName);
+      entireFilePath = PATH.join(directory, fileName);
       if (FS.statSync(entireFilePath).isDirectory()) {
         scanDir(entireFilePath);
         return;
