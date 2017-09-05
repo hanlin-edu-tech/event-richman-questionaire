@@ -93,7 +93,6 @@ gulp.task("copyStaticFile", copyStaticFile());
 gulp.task("minifyCSS", minifyCSS("src/css/*.css"));
 gulp.task("minifyImage", minifyImage("src/image/*.png"));
 gulp.task("buildJS", buildJS);
-
 gulp.task("package", () => {
   var deferred = Q.defer();
   Q.fcall(function() {
