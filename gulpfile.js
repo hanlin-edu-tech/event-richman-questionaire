@@ -75,20 +75,6 @@ const buildJS = () => {
   return Q.defer().promise
 }
 
-const deleteGcsObject = (bucketName) => {
-  const storage = new Storage()
-  storage
-    .bucket(bucketName)
-    .file('richman-questionnaire/**')
-    .delete()
-    .then(() => {
-      console.log(`gs://${bucketName}/${filename} deleted.`)
-    })
-    .catch(err => {
-      console.error('ERROR:', err)
-    })
-}
-
 const uploadGcs = bucketName => {
   return gulp
     .src([
