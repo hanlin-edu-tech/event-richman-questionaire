@@ -4,7 +4,6 @@ define(["vue", "v_message", "v_player", "answer"], function(
   v_player,
   answer
 ) {
-  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
   var v_questions = new Vue({
     el: "#questions",
     data: {
@@ -113,17 +112,17 @@ define(["vue", "v_message", "v_player", "answer"], function(
         methods: {
           onStar: function(pickId) {
             var starButton = document.getElementById(pickId);
-            starButton.style.backgroundImage = `url("${rootPath}/image/star.png")`;
+            starButton.style.backgroundImage = 'url("./image/star.png")';
             starButton.style.outline = "none";
           },
 
           offStar: function(pickId) {
             var starButton, isClick;
             starButton = document.getElementById(pickId);
-            starButton.style.backgroundImage = `url("${rootPath}/image/star-uncheck.png")`;
+            starButton.style.backgroundImage = 'url("./image/star-uncheck.png")';
             isClick = starButton.getAttribute("data-determine-click");
             if (isClick === "true") {
-              starButton.style.backgroundImage = `url("${rootPath}/image/star.png")`;
+              starButton.style.backgroundImage = 'url("./image/star.png")';
             }
           },
 
@@ -139,14 +138,14 @@ define(["vue", "v_message", "v_player", "answer"], function(
               isClick = starAnswer.getAttribute("data-determine-click");
 
               if (starAnswer.id === pickId) {
-                starAnswerStyle.backgroundImage = `url("${rootPath}/image/star.png")`;
+                starAnswerStyle.backgroundImage = 'url("./image/star.png")';
                 starAnswerStyle.outline = "none";
                 starAnswer.setAttribute("data-determine-click", true);
               } else {
                 if (
                   starAnswer.getAttribute("data-determine-click") === "true"
                 ) {
-                  starAnswerStyle.backgroundImage = `url("${rootPath}/image/star-uncheck.png")`;
+                  starAnswerStyle.backgroundImage = 'url("./image/star-uncheck.png")';
                   starAnswer.setAttribute("data-determine-click", false);
                 }
               }

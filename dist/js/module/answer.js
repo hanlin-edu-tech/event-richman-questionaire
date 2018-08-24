@@ -1,1 +1,0 @@
-"use strict";define(function(){return{roleImage:"",roleBackImage:"","Q1.":{id:"",point:""},"Q2.":{id:"",point:""},"Q3.":{id:"",point:""},"Q4.":{id:"",point:""},"Q5.":{id:"",point:""}}});

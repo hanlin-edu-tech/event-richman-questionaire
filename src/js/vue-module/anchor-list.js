@@ -1,32 +1,31 @@
-define(["vue"], function(Vue) {
-  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
+define(['vue'], function (Vue) {
   var v_anchorList = new Vue({
-    el: "#anchor-list",
+    el: '#anchor-list',
     data: {
       anchors: [
         {
           href:
-            "https://www.ehanlin.com.tw/event/richman-questionnaire/main.html",
-          text: "再玩一次 "
+            'https://www.ehanlin.com.tw/event/richman-questionnaire/main.html',
+          text: '再玩一次 '
         },
         {
-          href: "https://www.ehanlin.com.tw/courses_map.html",
-          text: "學霸課程 ",
-          category: "進入翰林雲端學院"
+          href: 'https://www.ehanlin.com.tw/courses_map.html',
+          text: '學霸課程 ',
+          category: '進入翰林雲端學院'
         },
         {
-          href: "https://www.ehanlin.com.tw/106intro.html",
-          text: "輕鬆學習祕技 ",
-          category: "輕鬆學習祕技"
+          href: 'https://www.ehanlin.com.tw/106intro.html',
+          text: '輕鬆學習祕技 ',
+          category: '輕鬆學習祕技'
         },
         {
-          image: `${rootPath}/image/facebook.png`,
-          href: "https://www.facebook.com/ehanlin.com.tw/",
-          category: "翰林雲端學院 FB 粉絲頁"
+          image: './image/facebook.png',
+          href: 'https://www.facebook.com/ehanlin.com.tw/',
+          category: '翰林雲端學院 FB 粉絲頁'
         },
         {
-          image: `${rootPath}/image/line.png`,
-          href: "https://line.me/R/ti/p/MtsRQz_Hn5"
+          image: './image/line.png',
+          href: 'https://line.me/R/ti/p/MtsRQz_Hn5'
         }
       ]
     },
@@ -38,33 +37,33 @@ define(["vue"], function(Vue) {
           <img :src="link.image">
         </a>
       `,
-        props: ["link"]
+        props: ['link']
       }
     },
     methods: {
-      gaSend: function() {
-        var anchors = this.$el.querySelectorAll("a");
-        var singleAnchor, gaCategory;
+      gaSend: function () {
+        var anchors = this.$el.querySelectorAll('a')
+        var singleAnchor, gaCategory
         for (var i = 0; i < anchors.length; i++) {
-          singleAnchor = anchors[i];
-          gaCategory = singleAnchor.getAttribute("data-category");
+          singleAnchor = anchors[i]
+          gaCategory = singleAnchor.getAttribute('data-category')
           if (gaCategory) {
-            singleAnchor.addEventListener("click", function(event) {
-              event.preventDefault();
+            singleAnchor.addEventListener('click', function (event) {
+              event.preventDefault()
               ga(
-                "send",
-                "event",
-                this.getAttribute("data-category"),
-                "anchor",
-                "連結"
-              );
-              location.href = this.href;
-            });
+                'send',
+                'event',
+                this.getAttribute('data-category'),
+                'anchor',
+                '連結'
+              )
+              location.href = this.href
+            })
           }
         }
       }
     }
-  });
+  })
 
-  return v_anchorList;
-});
+  return v_anchorList
+})

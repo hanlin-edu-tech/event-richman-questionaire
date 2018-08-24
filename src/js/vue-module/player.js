@@ -1,5 +1,4 @@
 define(["vue"], function(Vue) {
-  var rootPath = document.getElementById("rootPath").getAttribute("data-value");
   var v_player = new Vue({
     el: "#player",
     data: { imageFile: "" },
@@ -10,14 +9,14 @@ define(["vue"], function(Vue) {
       },
 
       "light-grid": {
-        template: `<img class="light-grid" src="${rootPath}/image/light-grid.png">`
+        template: '<img class="light-grid" src="./image/light-grid.png">'
       }
     },
 
     computed: {
       entireImagePath: {
         get: function() {
-          return `${rootPath}/image/${this.imageFile}`;
+          return `./image/${this.imageFile}`;
         },
         set: function(imageFile) {
           var student = this.$refs.student.$el;
@@ -26,7 +25,6 @@ define(["vue"], function(Vue) {
           setTimeout(function() {
             student.setAttribute("data-show", true);
           }, 100);
-          // student.onload =
         }
       }
     },
